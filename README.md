@@ -322,39 +322,26 @@ yingchen.for.upload@gmail.com
 
 ## Completeness & Limitations
 
-### What This Project Does Well
-- Delayed failure curves and policy erosion metrics
-- Adaptive attacker modeling beyond static templates
-- Power analysis for statistical rigor
-- Coverage mapping to real-world incident archetypes
+This repository implements automated, multi-turn red-teaming to uncover delayed failures and policy erosion that are invisible to single-turn jailbreak tests. It is intended as a stress-testing layer to complement benchmarks and safeguards, not as a comprehensive threat model.
 
-### Known Limitations
+**What is complete:**
+- Automated generation of multi-turn adversarial attacks via templates and mutators.
+- Adaptive attacker loops to discover vulnerabilities that static red-teaming misses.
+- Delayed failure metrics and erosion curves to quantify gradual degradation of safeguards over time.
+- Statistical power analysis utilities to assess confidence in observed regressions.
 
-**Attack Realism Gap**
-- Current attacks are primarily prompt engineering
-- Real-world threat actors have different motivations and constraints
-- Future work: threat model-driven attack generation (insider, fraud, collusion)
+**Key limitations:**
+- **Threat model realism:** Attacks are primarily prompt- and interaction-level. They do not fully model real-world adversaries such as insider threats, coordinated abuse networks, or socio-technical attack vectors.
+- **Coverage guarantees:** The stress tests do not provide formal coverage guarantees over the space of possible attacks. Absence of observed failures does not imply robustness.
+- **Defense feedback loop:** Stress test outputs are not yet automatically translated into safeguard patches or benchmark updates; human analysis is still required to close the loop.
+- **Operational constraints:** Latency, cost, and rate limits of large-scale red-teaming are not fully modeled.
 
-**Coverage Metrics Incomplete**
-- Attack success rates are reported but coverage of threat space is not
-- No systematic coverage gap analysis
-- Future work: coverage matrix, gap identification
+**Future work:**
+- Aligning attack classes with explicit threat models derived from production incidents.
+- Defining coverage metrics over attack categories and failure modes.
+- Automating feedback from stress test findings into safeguard design and regression suites.
 
-**Defense Feedback Loop Missing**
-- Stress test results do not automatically inform safeguard design
-- Manual interpretation required to translate findings to mitigations
-- Future work: automated safeguard patch suggestion, integration with simulator
-
-**Violation Detection**
-- Keyword-based violation detection (vs. learned classifier)
-- May miss subtle policy violations
-- May over-flag benign responses
-
-### Honest Assessment
-This project provides systematic stress testing with delayed failure analysis. It does not claim to:
-- Simulate real-world attacker behavior with high fidelity
-- Provide exhaustive coverage of the threat landscape
-- Automatically generate defensive countermeasures
+This project is part of a larger closed-loop safety system. See the portfolio overview for how this component integrates with benchmarks, safeguards, stress tests, release gating, and incident-driven regression.
 
 ---
 
