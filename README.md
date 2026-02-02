@@ -139,6 +139,46 @@ Count
 
 ---
 
+## Coverage Mapping to Real-World Incidents
+
+Stress tests are mapped to real-world incident archetypes to ensure ecological validity. Each attack category is linked to documented classes of production failures.
+
+## Statistical Power and Experimental Design
+
+We provide power analysis utilities to determine the number of rollouts required to reliably detect safety regressions. All reported comparisons include confidence intervals and effect sizes.
+
+## Static vs Adaptive Red-Teaming
+
+This repository supports A/B testing between static template attacks and adaptive attackers. Delayed failure curves and time-to-violation distributions are reported to characterize slow-burn vulnerabilities.
+
+---
+
+## 5-Minute Demo Walkthrough
+
+This demo generates delayed failures using adaptive red-teaming and visualizes erosion curves.
+
+### Step 1: Run Static Red-Teaming
+```bash
+python demos/run_redteam.py --mode static --rollouts 100
+```
+
+### Step 2: Run Adaptive Red-Teaming
+```bash
+python demos/run_redteam.py --mode adaptive --rollouts 100
+```
+
+### Step 3: Visualize Delayed Failure Curves
+```bash
+python demos/plot_erosion_curves.py --input results/latest.json
+```
+
+Expected outcome:
+- Static attacks plateau quickly.
+- Adaptive attacks discover delayed failures after multiple turns.
+- Erosion curves reveal slow degradation of safeguards.
+
+---
+
 ## Usage
 
 ```bash
