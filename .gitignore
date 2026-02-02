@@ -47,3 +47,4 @@ results/plots/*.png
 # OS
 .DS_Store
 Thumbs.db
+.claude/
