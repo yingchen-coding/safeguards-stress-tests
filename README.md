@@ -313,6 +313,51 @@ This project complements:
 
 ---
 
+## Contact
+
+Ying Chen, Ph.D.
+yingchen.for.upload@gmail.com
+
+---
+
+## Completeness & Limitations
+
+### What This Project Does Well
+- Delayed failure curves and policy erosion metrics
+- Adaptive attacker modeling beyond static templates
+- Power analysis for statistical rigor
+- Coverage mapping to real-world incident archetypes
+
+### Known Limitations
+
+**Attack Realism Gap**
+- Current attacks are primarily prompt engineering
+- Real-world threat actors have different motivations and constraints
+- Future work: threat model-driven attack generation (insider, fraud, collusion)
+
+**Coverage Metrics Incomplete**
+- Attack success rates are reported but coverage of threat space is not
+- No systematic coverage gap analysis
+- Future work: coverage matrix, gap identification
+
+**Defense Feedback Loop Missing**
+- Stress test results do not automatically inform safeguard design
+- Manual interpretation required to translate findings to mitigations
+- Future work: automated safeguard patch suggestion, integration with simulator
+
+**Violation Detection**
+- Keyword-based violation detection (vs. learned classifier)
+- May miss subtle policy violations
+- May over-flag benign responses
+
+### Honest Assessment
+This project provides systematic stress testing with delayed failure analysis. It does not claim to:
+- Simulate real-world attacker behavior with high fidelity
+- Provide exhaustive coverage of the threat landscape
+- Automatically generate defensive countermeasures
+
+---
+
 ## License
 
 MIT
