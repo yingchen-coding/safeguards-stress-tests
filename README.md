@@ -416,6 +416,8 @@ safeguards-stress-tests/
 ├── metrics/
 │   ├── erosion.py           # Erosion curves, failure distributions
 │   └── degradation_metrics.py  # Half-life, elasticity, recovery
+├── analysis/
+│   └── power_analysis.py    # Statistical power & coverage budgeting
 ├── config/
 │   ├── threat_model.yaml    # Attacker capability levels
 │   └── output_schema.json   # Machine-readable output contract
