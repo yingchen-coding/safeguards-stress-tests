@@ -155,27 +155,40 @@ This repository supports A/B testing between static template attacks and adaptiv
 
 ## 5-Minute Demo Walkthrough
 
-This demo generates delayed failures using adaptive red-teaming and visualizes erosion curves.
+This walkthrough demonstrates how delayed failures emerge under sustained adversarial pressure.
 
-### Step 1: Run Static Red-Teaming
+**Step 1: Run static jailbreak tests**
 ```bash
-python demos/run_redteam.py --mode static --rollouts 100
+python rollout.py --attack direct_jailbreaks --turns 1
 ```
 
-### Step 2: Run Adaptive Red-Teaming
+Observe high apparent robustness.
+
+**Step 2: Run multi-turn stress tests**
+
 ```bash
-python demos/run_redteam.py --mode adaptive --rollouts 100
+python rollout.py --attack decomposition_bypass --turns 10
 ```
 
-### Step 3: Visualize Delayed Failure Curves
+Inspect `results/erosion_curve.png` to see gradual compliance degradation.
+
+**Step 3: Enable adaptive attackers**
+
 ```bash
-python demos/plot_erosion_curves.py --input results/latest.json
+python rollout.py --attack adaptive --turns 10
 ```
 
-Expected outcome:
-- Static attacks plateau quickly.
-- Adaptive attacks discover delayed failures after multiple turns.
-- Erosion curves reveal slow degradation of safeguards.
+Review newly discovered failure cases in `results/delayed_failure_dist.png`.
+
+**Step 4: Export failures for downstream use**
+
+```bash
+python export_failures.py --format regression
+```
+
+Use the exported cases to seed regression tests or safeguard patches.
+
+This demo shows why single-turn red-teaming is insufficient for agentic systems.
 
 ---
 
@@ -342,6 +355,15 @@ This repository implements automated, multi-turn red-teaming to uncover delayed 
 - Automating feedback from stress test findings into safeguard design and regression suites.
 
 This project is part of a larger closed-loop safety system. See the portfolio overview for how this component integrates with benchmarks, safeguards, stress tests, release gating, and incident-driven regression.
+
+---
+
+## What This Repo Is NOT
+
+- This is not a complete red-team program or threat model.
+- This does not provide formal coverage guarantees over the attack space.
+- This is not a substitute for live monitoring and production incident response.
+- Stress test success does not imply real-world safety.
 
 ---
 
