@@ -23,6 +23,8 @@
 
 > **Rule of thumb**: This repo answers "how long until it breaks?" not "how do we fix it?"
 
+> **Boundary Statement**: Stress test results reflect **worst-case adversarial dynamics**, not population risk estimates. They **must not be used alone to block or approve releases**. Final authority lives in [model-safety-regression-suite](https://github.com/yingchen-coding/model-safety-regression-suite).
+
 ---
 
 ## Target Abstraction
