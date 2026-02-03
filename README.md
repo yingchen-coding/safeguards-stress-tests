@@ -2,13 +2,26 @@
 
 # Safeguards Stress Tests
 
-> **Stress-test models and agent systems under multi-turn adversarial pressure. Does not design defenses—only breaks them.**
+> **Mission**: Stress-test models and agent systems under multi-turn adversarial pressure.
+> Does not design defenses—only breaks them.
 
-An automated red-teaming harness for surfacing delayed safeguards failures and policy erosion in multi-turn agentic interactions.
+---
 
-**Boundary clarification:**
-- [agentic-safeguards-simulator](https://github.com/yingchen-coding/agentic-safeguards-simulator): How to **design** safeguards
-- **This repo**: How long safeguards **survive** under adaptive attack
+## Boundary Declaration
+
+**This repo is responsible for:**
+- Generating multi-turn adversarial attack sequences
+- Measuring safeguard degradation under pressure (erosion curves, half-life)
+- Producing stress failure artifacts for downstream consumption
+- Statistical power analysis for coverage budgeting
+
+**This repo explicitly does NOT:**
+- ❌ Implement safeguard mechanisms → [agentic-safeguards-simulator](https://github.com/yingchen-coding/agentic-safeguards-simulator)
+- ❌ Define attack taxonomies or benchmarks → [agentic-misuse-benchmark](https://github.com/yingchen-coding/agentic-misuse-benchmark)
+- ❌ Orchestrate production evaluation → [scalable-safeguards-eval-pipeline](https://github.com/yingchen-coding/scalable-safeguards-eval-pipeline)
+- ❌ Make release decisions → [model-safety-regression-suite](https://github.com/yingchen-coding/model-safety-regression-suite)
+
+> **Rule of thumb**: This repo answers "how long until it breaks?" not "how do we fix it?"
 
 ---
 
